@@ -459,23 +459,13 @@ public class EditMemberForm extends javax.swing.JFrame {
 
     private void jButton_SelectProfilePicture_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_SelectProfilePicture_ActionPerformed
         // TODO add your handling code here:
-        JFileChooser fileChooser = new JFileChooser();
-        fileChooser.setDialogTitle("Select Profile Picture");
-
-        fileChooser.setCurrentDirectory(new File("C:\\Users\\Admin\\OneDrive\\anh\\screenshot\\screenshot"));
-
-        FileNameExtensionFilter extensionFilter = new FileNameExtensionFilter("Image", "png", "jpg", "jpeg");
-        fileChooser.addChoosableFileFilter(extensionFilter);
-        int fileState = fileChooser.showSaveDialog(null);
-
-        if (fileState == JFileChooser.APPROVE_OPTION) {
-            String path = fileChooser.getSelectedFile().getAbsolutePath();
-            jLabel_ImagePath.setText(path);
-            imagePath = path;
-            
-            //display the image's path
-            func.displayImage(75, 60, null, path, jLabel_Image);
-        }
+        String path = func.selectImage();
+        jLabel_ImagePath.setText(path);
+        imagePath = path;
+        
+        //display the image's path
+        func.displayImage(75, 60, null, path, jLabel_Image);
+        
     }//GEN-LAST:event_jButton_SelectProfilePicture_ActionPerformed
 
     private void jTextField_IdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField_IdActionPerformed

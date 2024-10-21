@@ -8,14 +8,17 @@ package My_Classes;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Image;
+import java.io.File;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
 import javax.swing.JLabel;
 import javax.swing.JTable;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
  * @author Admin
@@ -77,5 +80,27 @@ public class Func_Class {
         }
 
         return rs;
+    }
+    
+    public String selectImage() {
+        
+        JFileChooser fileChooser = new JFileChooser();
+        fileChooser.setDialogTitle("Select Profile Picture");
+
+        fileChooser.setCurrentDirectory(new File("C:\\Users\\Admin\\OneDrive\\anh\\screenshot\\screenshot"));
+
+        FileNameExtensionFilter extensionFilter = new FileNameExtensionFilter("Image", "png", "jpg", "jpeg");
+        fileChooser.addChoosableFileFilter(extensionFilter);
+        int fileState = fileChooser.showSaveDialog(null);
+
+        String path = "";
+                
+        if (fileState == JFileChooser.APPROVE_OPTION) {
+            
+            path = fileChooser.getSelectedFile().getAbsolutePath();
+            
+        }
+        
+        return path;
     }
 }

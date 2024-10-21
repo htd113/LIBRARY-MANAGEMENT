@@ -5,6 +5,7 @@
  */
 package My_Classes;
 
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -178,12 +179,19 @@ public class Member {
     }
     
     //function to populate an arrayList with members
-    public ArrayList<Member> membersList() {
+    public ArrayList<Member> membersList(String query) {
         ArrayList<Member> mList = new ArrayList<>();
         My_Classes.Func_Class func = new Func_Class();
         try {
-            ResultSet rs = func.getData("SELECT * FROM `members`");
+            
+            if (query.equals("")) { // if the users enter empty string makes this the default select
+                query = "SELECT * FROM `members`";
+            }
+            
+            ResultSet rs = func.getData(query);
+            
             Member member;
+            
             while (rs.next()) {
                 member = new Member(rs.getInt("id"), rs.getString("firstname"),
                                     rs.getString("lastname"), rs.getString("phone"),
@@ -196,6 +204,10 @@ public class Member {
             Logger.getLogger(Author.class.getName()).log(Level.SEVERE, null, ex);
         }
         return mList;
+    }
+
+    public void addBook(String Isbn, String Name, Integer author_id, Integer genre_id, Integer quantity, String Publisher, Double price, Date received_date, String Description, byte[] img) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
 }

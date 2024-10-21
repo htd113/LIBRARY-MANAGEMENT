@@ -37,6 +37,7 @@ public class AddMemberForm extends javax.swing.JFrame {
      */
     My_Classes.Member member = new My_Classes.Member();
     String imagePath = null;
+    My_Classes.Func_Class func = new My_Classes.Func_Class();
 
     public AddMemberForm() {
         initComponents();
@@ -345,6 +346,8 @@ public class AddMemberForm extends javax.swing.JFrame {
 
     private void JButton_Add_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JButton_Add_ActionPerformed
         // TODO add your handling code here:
+        
+        // get values
         String fname = jTextField_FirstName.getText();
         String lname = jTextField_LastName.getText();
         String phone = jTextField_Phone.getText();
@@ -384,20 +387,10 @@ public class AddMemberForm extends javax.swing.JFrame {
 
     private void jButton_SelectProfilePicture_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_SelectProfilePicture_ActionPerformed
         // TODO add your handling code here:
-        JFileChooser fileChooser = new JFileChooser();
-        fileChooser.setDialogTitle("Select Profile Picture");
-
-        fileChooser.setCurrentDirectory(new File("C:\\Users\\Admin\\OneDrive\\anh\\screenshot\\screenshot"));
-
-        FileNameExtensionFilter extensionFilter = new FileNameExtensionFilter("Image", "png", "jpg", "jpeg");
-        fileChooser.addChoosableFileFilter(extensionFilter);
-        int fileState = fileChooser.showSaveDialog(null);
-
-        if (fileState == JFileChooser.APPROVE_OPTION) {
-            String path = fileChooser.getSelectedFile().getAbsolutePath();
-            jLabel_ImagePath.setText(path);
-            imagePath = path;
-        }
+        String path = func.selectImage();
+        jLabel_ImagePath.setText(path);
+        imagePath = path;
+        
     }//GEN-LAST:event_jButton_SelectProfilePicture_ActionPerformed
 
     /**

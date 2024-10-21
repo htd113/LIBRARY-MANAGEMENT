@@ -81,7 +81,7 @@ public class ManageAuthorsForm extends javax.swing.JFrame {
 
         jLabel_FormTitle.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel_FormTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel_FormTitle.setText("Manage Books Generes");
+        jLabel_FormTitle.setText("Manage Authors");
         jLabel_FormTitle.setToolTipText("");
         jLabel_FormTitle.setOpaque(true);
 
@@ -393,7 +393,7 @@ public class ManageAuthorsForm extends javax.swing.JFrame {
         try {
               int id = Integer.parseInt(jTextField_ID.getText());
               author.removeAuthor(id);
-              //populateJtableWithGenres();
+              populateJtableWithAuthors();
               jTextField_ID.setText("");
               jTextField_FirstName.setText("");
               jTextField_LastName.setText("");

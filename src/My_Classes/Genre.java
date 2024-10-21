@@ -9,6 +9,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -45,7 +46,9 @@ public class Genre {
     public void setName(String name) {
         this.name = name;
     }
-
+    
+    My_Classes.Func_Class func = new Func_Class();
+    
     public void addGenre(String name) {
         String insertQuery = "INSERT INTO `book_genres`(`name`) VALUES (?)";
         try {
@@ -61,6 +64,8 @@ public class Genre {
         }
 
     }
+    
+    
 
     public void editGenre(int id, String name) {
         String editQuery = "UPDATE `book_genres` SET `name` = ? WHERE `id` = ?";
@@ -97,7 +102,7 @@ public class Genre {
 
     public ArrayList<Genre> genreList() {
         ArrayList<Genre> gList = new ArrayList<>();
-        My_Classes.Func_Class func = new Func_Class();
+        func = new Func_Class();
         try {
             ResultSet rs = func.getData("SELECT * FROM `book_genres`");
             Genre genre;
@@ -109,5 +114,27 @@ public class Genre {
             Logger.getLogger(Genre.class.getName()).log(Level.SEVERE, null, ex);
         }
         return gList;
+    }
+    
+    //create a function to return a hashmap
+    // string is the key
+    // integer is value
+    public HashMap<String, Integer> getGenresMap() {
+        HashMap<String, Integer> map = new HashMap<>();
+        
+        try {
+            ResultSet rs = func.getData("SELECT * FROM `book_genres`");
+            
+            Genre genre;
+            
+            while(rs.next()) {
+                genre = new Genre(rs.getInt("id"), rs.getString("name"));
+                map.put(genre.getName(), genre.getId());
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Genre.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return map;
     }
 }

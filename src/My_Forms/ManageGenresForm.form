@@ -63,6 +63,8 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jTextField_Name" min="-2" pref="593" max="-2" attributes="0"/>
                                   <Component id="jTextField_ID" min="-2" pref="294" max="-2" attributes="0"/>
+                                  <Component id="jLabel_EmptyId_" alignment="0" min="-2" pref="593" max="-2" attributes="0"/>
+                                  <Component id="jLabel_EmptyName_" alignment="0" min="-2" pref="593" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -89,18 +91,17 @@
                       </Group>
                   </Group>
               </Group>
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="148" max="-2" attributes="0"/>
-                  <Component id="jLabel_EmptyName_" min="-2" pref="593" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
-              </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <Group type="103" groupAlignment="1" attributes="0">
-                      <Group type="102" attributes="0">
+                      <Group type="102" alignment="1" attributes="0">
+                          <Component id="jScrollPane1" min="-2" pref="153" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel_CloseForm_" alignment="3" min="-2" pref="99" max="-2" attributes="0"/>
                               <Component id="jLabel_FormTitle" alignment="3" min="-2" pref="99" max="-2" attributes="0"/>
@@ -110,17 +111,18 @@
                               <Component id="jLabel3" alignment="3" min="-2" pref="67" max="-2" attributes="0"/>
                               <Component id="jTextField_ID" alignment="3" min="-2" pref="42" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jLabel_EmptyId_" min="-2" pref="30" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel1" alignment="3" min="-2" pref="67" max="-2" attributes="0"/>
                               <Component id="jTextField_Name" alignment="3" min="-2" pref="42" max="-2" attributes="0"/>
                           </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jLabel_EmptyName_" min="-2" pref="30" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
                       </Group>
-                      <Component id="jScrollPane1" min="-2" pref="153" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jLabel_EmptyName_" min="-2" pref="30" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="JButton_Add_" alignment="3" min="-2" pref="43" max="-2" attributes="0"/>
                       <Component id="JButton_Edit_" alignment="3" min="-2" pref="43" max="-2" attributes="0"/>
@@ -250,6 +252,17 @@
             </Component>
           </SubComponents>
         </Container>
+        <Component class="javax.swing.JLabel" name="jLabel_EmptyId_">
+          <Properties>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="33" red="33" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="* enter the genre name"/>
+          </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabel_EmptyId_MouseClicked"/>
+          </Events>
+        </Component>
         <Component class="javax.swing.JLabel" name="jLabel_EmptyName_">
           <Properties>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
