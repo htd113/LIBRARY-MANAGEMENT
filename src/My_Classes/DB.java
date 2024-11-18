@@ -5,7 +5,6 @@
  */
 package My_Classes;
 
-
 import com.mysql.cj.jdbc.MysqlDataSource;
 
 import java.sql.Connection;
@@ -19,7 +18,7 @@ import java.util.logging.Logger;
 public class DB {
     private static String serverName = "localhost";
     private static String userName = "root";
-    private static String dbName = "java_library_system";
+    private static String dbName = "java_library_management";
     private static Integer portNumber = 3306;
     private static String pass = "";
 
@@ -43,3 +42,4 @@ public class DB {
     }
 
 }
+

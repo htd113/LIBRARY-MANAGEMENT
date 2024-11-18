@@ -74,6 +74,8 @@ public class Author {
         this.about = about;
     }
 
+    My_Classes.Func_Class func = new My_Classes.Func_Class();
+
     public void addAuthor(String _fname, String _lname, String _expertise, String _about) {
         String insertQuery = "INSERT INTO `author`(`firstName`, `lastName`, `expertise`, `about`) VALUES (?, ?, ?, ?)";
         try {
@@ -94,7 +96,7 @@ public class Author {
     }
 
     public void editAuthor(int _id, String _fname, String _lname, String _expertise, String _about) {
-        String editQuery = "UPDATE `author` SET `firstName` = ?, `lastName` = ?, `expertise` = ?, `about` = ? WHERE `id` = ?";
+        String editQuery = "UPDATE `author` SET `firstname` = ?, `lastname` = ?, `expertise` = ?, `about` = ? WHERE `id` = ?";
         try {
             PreparedStatement ps = DB.getConnection().prepareStatement(editQuery);
             ps.setString(1, _fname);
@@ -143,6 +145,20 @@ public class Author {
             Logger.getLogger(Author.class.getName()).log(Level.SEVERE, null, ex);
         }
         return aList;
+    }
+
+    public My_Classes.Author getAuthorById(Integer id) {
+        ResultSet rs = func.getData("SELECT * FROM `author` where id = " + id);
+        My_Classes.Author author = null;
+
+        try {
+            if (rs.next()) {
+                author = new My_Classes.Author(rs.getInt("id"), rs.getString("firstName"), rs.getString("lastName"), rs.getString("expertise"), rs.getString("about"));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(My_Classes.Author.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return author;
     }
 }
 
